@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 16:28:56 by jtong             #+#    #+#             */
-/*   Updated: 2019/05/30 14:47:04 by jtong            ###   ########.fr       */
+/*   Updated: 2021/10/18 11:55:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <sys/types.h>
 
 # ifndef LONG_MAX
 #  define LONG_MAX	0x7fffffffffffffffL
@@ -111,4 +112,5 @@ int		ft_isupper(int c);
 int		ft_islower(int c);
 char	*ft_ulltoa_base(unsigned long long n, int base);
 char	*ft_strndup(const char *src, size_t len);
+int		ft_isnum(const char *str, int ignore_whitespace);
 #endif

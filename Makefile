@@ -6,7 +6,7 @@
 #    By: jtong <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/12 09:44:30 by jtong             #+#    #+#              #
-#    Updated: 2019/06/25 17:43:10 by jtong            ###   ########.fr        #
+#    Updated: 2021/10/18 11:48:25 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC := ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 	ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_strlcpy.c ft_lstsize.c \
 	ft_printbits.c ft_wordcount.c ft_itoa_base.c ft_isspace.c ft_strtol.c \
-	ft_isupper.c ft_islower.c ft_ulltoa_base.c ft_strndup.c
+	ft_isupper.c ft_islower.c ft_ulltoa_base.c ft_strndup.c ft_isnum.c
 #LIST_FILES
 SRC += $(addprefix list/, \
 	ft_listadd.c ft_listclear.c ft_listfree.c ft_listlop.c \
