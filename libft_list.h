@@ -6,14 +6,14 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:55:55 by jtong             #+#    #+#             */
-/*   Updated: 2019/07/09 14:32:44 by jtong            ###   ########.fr       */
+/*   Updated: 2021/10/21 13:22:30 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_LIST_H
 # define LIBFT_LIST_H
 
-# include "../libft.h"
+# include "libft.h"
 
 typedef struct s_node	t_node;
 struct	s_node

@@ -6,9 +6,12 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:06:54 by jtong             #+#    #+#             */
-/*   Updated: 2018/12/04 18:31:20 by jtong            ###   ########.fr       */
+/*   Updated: 2021/10/21 13:06:05 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include <stdlib.h>
 
 void	ft_lstrm(t_list **alst, t_list *elem)
 {
