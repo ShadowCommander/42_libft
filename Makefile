@@ -6,16 +6,12 @@
 #    By: jtong <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/12 09:44:30 by jtong             #+#    #+#              #
-#    Updated: 2021/10/21 13:22:57 by jtong            ###   ########.fr        #
+#    Updated: 2021/10/21 13:27:12 by jtong            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
 SRC := $(wildcard *.c)
-#LIST_FILES
-SRC += ft_listadd.c ft_listclear.c ft_listfree.c ft_listlop.c \
-	ft_listnew.c ft_listnode.c ft_listpop.c ft_listpush.c ft_listrm.c \
-	ft_listsort.c ft_listsrt.c ft_listfind.c
 HEADERDIRS := .
 FILES := $(SRC)
 OBJ := $(FILES:.c=.o)
