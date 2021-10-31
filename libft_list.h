@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:55:55 by jtong             #+#    #+#             */
-/*   Updated: 2021/10/21 13:22:30 by jtong            ###   ########.fr       */
+/*   Updated: 2021/10/31 10:55:44 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ t_node	*ft_listlop(t_llist *list);
 /* Sets prev->next to node->next and returns node */
 t_node	*ft_listrm(t_node *prev, t_node *node);
 t_node	*ft_listsrt(t_node **next, t_node *node);
+
+void	ft_nodeiter(t_node *node, void (*f)(t_node *node));
+void	ft_listfiter(t_llist *list, t_node *node,
+		void (*f)(t_llist *list, t_node *node))
 
 void	ft_listfree(t_node *nptr, int malloced);
 void	*ft_listclear(t_llist *list, int malloced);
