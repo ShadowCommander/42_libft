@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 17:45:37 by jtong             #+#    #+#             */
-/*   Updated: 2018/11/08 16:59:53 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/06 05:21:50 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 char	*ft_strnew(size_t size)
 {
-	char	*out;
-
-	if (!(out = (char *)ft_memalloc(size + 1)))
-		return (NULL);
-	return (out);
+	return ((char *)ft_memalloc(size + 1));
 }

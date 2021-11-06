@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 23:38:57 by jtong             #+#    #+#             */
-/*   Updated: 2019/05/30 14:54:25 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/06 05:19:29 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 **	return ((int)output);
 */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	return ((int)ft_strtol(str, (char **)NULL, 10));
+	return ((int)ft_strtol(str, (char **) NULL, 10));
 }

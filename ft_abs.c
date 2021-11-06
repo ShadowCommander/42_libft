@@ -6,16 +6,16 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 22:13:24 by jtong             #+#    #+#             */
-/*   Updated: 2021/11/03 22:16:38 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/06 05:22:35 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_abs(int num)
+int	ft_abs(int num)
 {
 	if (num < 0)
 		return (-num);
 	else
-		return (num);	
+		return (num);
 }

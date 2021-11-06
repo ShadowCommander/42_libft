@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 17:23:31 by jtong             #+#    #+#             */
-/*   Updated: 2018/11/08 16:01:41 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/06 05:26:44 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	*ft_memalloc(size_t size)
 {
 	void	*mem;
 
-	if (!(mem = malloc(size)))
+	mem = malloc(size);
+	if (mem == NULL)
 		return (NULL);
 	ft_bzero(mem, size);
 	return (mem);
