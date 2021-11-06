@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putull_fd.c                                     :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 15:58:55 by jtong             #+#    #+#             */
-/*   Updated: 2021/11/06 04:17:06 by jtong            ###   ########.fr       */
+/*   Created: 2021/11/04 09:28:11 by jtong             #+#    #+#             */
+/*   Updated: 2021/11/04 09:29:51 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-ssize_t	ft_putull_fd(unsigned long long n, int fd)
+int	ft_intlen(int n)
 {
-	ssize_t	size;
-
-	size = 0;
-	if (n >= 10)
-		size = ft_putull_fd(n / 10, fd);
-	size += ft_putchar_fd((n % 10) + '0', fd);
-	return (size);
+	int	len;
+	
+	len = n < 0;
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
+

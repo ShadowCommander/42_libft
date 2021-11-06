@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:55:55 by jtong             #+#    #+#             */
-/*   Updated: 2021/10/31 10:58:14 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/05 23:10:10 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ t_node	*ft_listsrt(t_node **next, t_node *node);
 void	ft_nodeiter(t_node *node, void (*f)(t_node *node));
 /* Calls a function on every node in a list after the specified node */
 void	ft_listfiter(t_llist *list, t_node *node,
-		void (*f)(t_llist *list, t_node *node))
+		void (*f)(t_llist *list, t_node *node));
 
+/* Free node */
 void	ft_listfree(t_node *nptr, int malloced);
+/* Free list */
 void	*ft_listclear(t_llist *list, int malloced);
 
 t_node	*ft_listnode(void *content, size_t size);

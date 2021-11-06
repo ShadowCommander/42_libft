@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 16:28:56 by jtong             #+#    #+#             */
-/*   Updated: 2021/10/21 11:30:16 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/04 09:28:51 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,6 @@ int		ft_islower(int c);
 char	*ft_ulltoa_base(unsigned long long n, int base);
 char	*ft_strndup(const char *src, size_t len);
 int		ft_isnum(const char *str, int ignore_whitespace);
+int		ft_abs(int num);
+int		ft_intlen(int n);
 #endif

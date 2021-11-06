@@ -6,14 +6,14 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:12:37 by jtong             #+#    #+#             */
-/*   Updated: 2019/05/03 17:10:35 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/06 03:22:43 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static int		ft_ctoi(int c)
+static int	ft_ctoi(int c)
 {
 	if (ft_isdigit(c))
 		return (c - '0');
@@ -24,7 +24,7 @@ static int		ft_ctoi(int c)
 	return (c);
 }
 
-long			ft_strtol(const char *ptr, char **endptr, int base)
+long	ft_strtol(const char *ptr, char **endptr, int base)
 {
 	t_strtol	vars;
 
