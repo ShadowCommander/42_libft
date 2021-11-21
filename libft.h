@@ -108,7 +108,7 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
-char	**ft_strsplit(char const *s, char c);
+char	**ft_split(char const *s, char c);
 ssize_t	ft_putchar(char c);
 ssize_t	ft_putstr(char const *str);
 ssize_t	ft_putendl(char const *s);
