@@ -34,7 +34,7 @@ static void	split(t_llist *list, t_llist *a, t_llist *b)
 	a->end->next = NULL;
 }
 
-void		ft_listsort(t_llist *list, int (*f)(t_node *, t_node *), int rev)
+static void	ft_listsort_re(t_llist *list, int (*f)(t_node *, t_node *), int rev)
 {
 	t_llist	*a;
 	t_llist	*b;
@@ -46,18 +46,26 @@ void		ft_listsort(t_llist *list, int (*f)(t_node *, t_node *), int rev)
 	split(list, a, b);
 	ft_listsort(a, f, rev);
 	ft_listsort(b, f, rev);
-	if ((rev ? -1 : 1) * (*f)(a->start, b->start) > 0)
+	if (rev * (*f)(a->start, b->start) > 0)
 		list->start = ft_listpop(b);
 	else
 		list->start = ft_listpop(a);
 	list->end = list->start;
 	while (a || b)
 	{
-		if (b && (!a || (rev ? -1 : 1) * (*f)(a->start, b->start) > 0))
+		if (b && (!a || rev * (*f)(a->start, b->start) > 0))
 			ft_listadd(list, ft_listpop(b));
 		else
 			ft_listadd(list, ft_listpop(a));
 	}
 	free(a);
 	free(b);
+}
+
+void	ft_listsort(t_llist *list, int (*f)(t_node *, t_node *), int rev)
+{
+	if (rev)
+		ft_listsort_re(list, f, -1);
+	else
+		ft_listsort_re(list, f, 1);
 }

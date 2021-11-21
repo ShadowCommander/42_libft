@@ -20,29 +20,30 @@ static char	ft_getdigit(int i)
 	return ('\0');
 }
 
-char		*ft_itoa_base(int n, int base)
+char	*ft_itoa_base(int n, int base)
 {
-	int		cpy;
 	int		size;
 	int		offset;
 	char	*str;
 
 	if (base < 2 || base > 35)
 		return (NULL);
-	cpy = n;
-	size = n ? 0 : 1;
-	if (cpy != 0)
-		while (++size && (cpy /= base) != 0)
-			;
-	offset = n < 0 && base == 10 ? 1 : 0;
-	size += offset;
-	if (!(str = ft_strnew(size)))
+	offset = n;
+	size = (n == 0) + (base == 10 && n < 0);
+	while (offset != 0)
+	{
+		offset /= base;
+		size++;
+	}
+	offset = (base == 10 && n < 0);
+	str = ft_strnew(size);
+	if (str == NULL)
 		return (NULL);
 	if (n < 0 && base == 10)
 		str[0] = '-';
 	while (size-- > offset)
 	{
-		str[size] = ft_getdigit((n < 0 ? -1 : 1) * (n % base));
+		str[size] = ft_getdigit(ft_abs(n % base));
 		n /= base;
 	}
 	return (str);

@@ -14,8 +14,8 @@
 
 t_node	*ft_listrm(t_node *prev, t_node *node)
 {
-	if (!prev || !node)
-		return NULL;
+	if (prev == NULL || node == NULL)
+		return (NULL);
 	prev->next = node->next;
 	node->next = NULL;
 	return (node);

@@ -18,7 +18,7 @@ OBJ := $(FILES:.c=.o)
 CC := clang
 HEADERFLAGS := $(addprefix -I,$(HEADERDIRS))
 OFLAGS := $(HEADERFLAGS)
-CCFLAGS := -Werror -Wall -Wextra ${CFLAGS}
+CCFLAGS := -Werror -Wall -Wextra -pedantic ${CFLAGS}
 
 all: $(NAME)
 

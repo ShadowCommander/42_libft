@@ -19,7 +19,8 @@ ssize_t	ft_putendl_fd(char const *s, int fd)
 
 	if (!s)
 		return (-1);
-	if ((size = ft_putstr_fd(s, fd)) == -1)
+	size = ft_putstr_fd(s, fd);
+	if (size == -1)
 		return (-1);
 	if (ft_putchar_fd('\n', fd) == -1)
 		return (-1);

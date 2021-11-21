@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s)
 	size_t	e;
 	char	*str;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	f = 0;
 	e = ft_strlen(s);
@@ -29,7 +29,6 @@ char	*ft_strtrim(char const *s)
 	if (e > f)
 		while (--e > f && (s[e] == ' ' || s[e] == '\t' || s[e] == '\n'))
 			;
-	if (!(str = ft_strsub(s, f, e - f + 1)))
-		return (NULL);
+	str = ft_strsub(s, f, e - f + 1);
 	return (str);
 }

@@ -29,7 +29,7 @@ static void	ft_lstfree(t_list **list)
 	list = NULL;
 }
 
-t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*head;
 	t_list	*tail;
@@ -41,7 +41,8 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	tail = head;
 	while (lst)
 	{
-		if (!(tail->next = (*f)(lst)))
+		tail->next = (*f)(lst);
+		if (tail->next == NULL)
 		{
 			ft_lstfree(&head);
 			return (NULL);
