@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 18:55:55 by jtong             #+#    #+#             */
-/*   Updated: 2021/11/06 05:26:16 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/06 22:03:28 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ void	ft_listfiter(t_llist *list, t_node *node,
 
 /* Free node */
 void	ft_listfree(t_node *nptr, int malloced);
-/* Free list */
+/* Free list items */
 void	*ft_listclear(t_llist *list, int malloced);
+/* Free list and items */
+void	ft_listdelete(t_llist **list, int malloced);
 
 t_node	*ft_listnode(void *content, size_t size);
 t_llist	*ft_listnew(void);
