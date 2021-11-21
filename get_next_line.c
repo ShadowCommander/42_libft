@@ -16,41 +16,68 @@
 #include <sys/types.h>
 #include <stdio.h>
 
-char	*ft_strreplace(char *s1, char *s2)
+static char	*ft_strreplace(char *s1, char *s2)
 {
 	if (s1 != NULL)
 		free(s1);
 	return (s2);
 }
 
-static int	gnl_free_return(void **ptr)
+static int	gnl_init(const int fd, char **line, char *sav[])
 {
-	free(*ptr);
-	*ptr == NULL;
-	return (-1);
-}
-
-int		get_next_line(const int fd, char **line)
-{
-	static char	*sav[FD_MAX];
-	char		buf[BUFFER_SIZE + 1];
-	char		*tmp;
-	ssize_t		size;
-
 	if (fd < 0 || !line || BUFFER_SIZE < 1)
 		return (-1);
-	size = 0;
-	if (!sav[fd])
+	if (sav[fd] == NULL)
 		sav[fd] = ft_strnew(0);
-	while (!(tmp = ft_strchr(sav[fd], '\n')) &&
-			(size = read(fd, buf, BUFFER_SIZE)) > 0)
-		sav[fd] = ft_strreplace(sav[fd], ft_strnjoin(sav[fd], buf, size));
+	if (sav[fd] == NULL)
+		return (-1);
+	return (0);
+}
+
+static int	gnl_read(const int fd, char **tmp, char **sav)
+{
+	ssize_t		size;
+	char		buf[BUFFER_SIZE + 1];
+
+	size = 0;
+	*tmp = ft_strchr(*sav, '\n');
+	if (*tmp == NULL)
+		size = read(fd, buf, BUFFER_SIZE);
+	while (*tmp == NULL && size > 0)
+	{
+		*sav = ft_strreplace(*sav, ft_strnjoin(*sav, buf, size));
+		*tmp = ft_strchr(*sav, '\n');
+		if (*tmp == NULL)
+			size = read(fd, buf, BUFFER_SIZE);
+	}
 	if (size < 0)
-		return (gnl_free_return(&sav[fd]);
-	*line = ft_strsub(sav[fd], 0,
-		tmp ? (size_t)(tmp - sav[fd]) : ft_strlen(sav[fd]));
+	{
+		free(sav[fd]);
+		sav[fd] = NULL;
+		return (-1);
+	}
+	return (0);
+}
+
+int	get_next_line(const int fd, char **line)
+{
+	static char	*sav[FD_MAX];
+	char		*tmp;
+
+	if (gnl_init(fd, line, sav) == -1)
+		return (-1);
+	if (gnl_read(fd, &tmp, &sav[fd]) == -1)
+		return (-1);
 	if (tmp != NULL)
+		*line = ft_strsub(sav[fd], 0, (size_t)(tmp - sav[fd]));
+	else
+		*line = ft_strsub(sav[fd], 0, ft_strlen(sav[fd]));
+	if (tmp != NULL)
+	{
 		tmp++;
-	sav[fd] = ft_strreplace(sav[fd], ft_strsub(tmp, 0, ft_strlen(tmp)));
+		sav[fd] = ft_strreplace(sav[fd], ft_strsub(tmp, 0, ft_strlen(tmp)));
+	}
+	else
+		sav[fd] = NULL;
 	return (sav[fd] != NULL);
 }

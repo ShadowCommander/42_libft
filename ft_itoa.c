@@ -19,7 +19,7 @@ char	*ft_itoa(int n)
 	char	*str;
 
 	neg = n < 0;
-	size = ft_intlen(n) + neg;
+	size = ft_intlen(n);
 	str = ft_strnew(sizeof(*str) * (size + 1 + neg));
 	if (str == NULL)
 		return (NULL);
