@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wordcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jtong <jtong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 19:50:17 by jtong             #+#    #+#             */
-/*   Updated: 2018/11/14 19:50:54 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/23 09:24:02 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-size_t	ft_wordcount(const char *str, char c)
+size_t	ft_wordcount(const char *str, char const *separators)
 {
 	int		whitespace;
 	size_t	words;
@@ -21,12 +21,12 @@ size_t	ft_wordcount(const char *str, char c)
 	words = 0;
 	while (*str)
 	{
-		while (*str && *str == c)
+		while (*str && ft_strchr(separators, *str) != NULL)
 		{
 			whitespace = 1;
 			str++;
 		}
-		while (*str && *str != c)
+		while (*str && ft_strchr(separators, *str) == NULL)
 		{
 			whitespace = 0;
 			str++;

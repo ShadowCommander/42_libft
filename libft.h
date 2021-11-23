@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jtong <jtong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 16:28:56 by jtong             #+#    #+#             */
-/*   Updated: 2021/11/06 21:44:51 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/23 16:38:46 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,18 @@
 # include <sys/types.h>
 
 # ifndef LONG_MAX
-#  define LONG_MAX	0x7fffffffffffffffL
+#  define LONG_MAX		0x7fffffffffffffffL
 # endif
 # ifndef LONG_MIN
-#  define LONG_MIN	0x8000000000000001L
+#  define LONG_MIN		0x8000000000000001L
 # endif
 
-# define BUFFER_SIZE	1024
-# define FD_MAX	65546
+# ifndef FD_MAX
+#  define FD_MAX		65536
+# endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE	1024
+# endif
 
 typedef struct s_strtol	t_strtol;
 struct	s_strtol
@@ -99,7 +103,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnjoin(char const *s1, char const *s2, size_t s2_len);
 char	*ft_strtrim(char const *s);
 
-size_t	ft_wordcount(const char *str, char c);
+size_t	ft_wordcount(const char *str, char const *separators);
 char	**ft_split(char const *s, char c);
 
 /* memory */

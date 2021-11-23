@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jtong <jtong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 14:12:37 by jtong             #+#    #+#             */
-/*   Updated: 2021/11/06 05:56:54 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/23 09:18:33 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,16 @@ long	ft_strtol(const char *ptr, char **endptr, int base)
 
 	if (base <= 1 || base > 16)
 		return (0);
-	v = (t_strtol){ptr, 0, 1, 0, 0, 0};
+	v.s = ptr;
 	while (ft_isspace(*v.s))
 		v.s++;
-	if (*v.s == '-' && ft_isalnum(v.s[1]))
+	v.neg = 1;
+	if (*v.s == '-')
 		v.neg = -1;
-	if ((*v.s == '-' || *v.s == '+') && ft_isalnum(v.s[1]))
-		v.s++;
+	v.s += (*v.s == '-' || *v.s == '+');
 	v.cutoff = (LONG_MAX * v.neg) / base;
 	v.cutlim = (LONG_MAX * v.neg) % base;
+	v.acc = 0;
 	while (ft_isalnum(*v.s) && ft_ctoi(*v.s) < base)
 	{
 		v.c = ft_ctoi(*v.s);

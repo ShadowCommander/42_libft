@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ulltoa_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jtong <jtong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 20:28:35 by jtong             #+#    #+#             */
-/*   Updated: 2019/05/30 14:51:39 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/23 09:02:03 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_ulltoa_base(unsigned long long n, int base)
 	if (base < 2 || base > 35)
 		return (NULL);
 	cpy = n;
-	size = n != 0;
+	size = n == 0;
 	while (cpy != 0)
 	{
 		cpy /= base;
