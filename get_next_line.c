@@ -6,7 +6,7 @@
 /*   By: jtong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 20:35:10 by jtong             #+#    #+#             */
-/*   Updated: 2021/04/04 21:58:59 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/25 12:41:35 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static int	gnl_read(const int fd, char **tmp, char **sav)
 	}
 	if (size < 0)
 	{
-		free(sav[fd]);
-		sav[fd] = NULL;
+		free(*sav);
+		*sav = NULL;
 		return (-1);
 	}
 	return (0);
@@ -73,11 +73,7 @@ int	get_next_line(const int fd, char **line)
 	else
 		*line = ft_strsub(sav[fd], 0, ft_strlen(sav[fd]));
 	if (tmp != NULL)
-	{
 		tmp++;
-		sav[fd] = ft_strreplace(sav[fd], ft_strsub(tmp, 0, ft_strlen(tmp)));
-	}
-	else
-		sav[fd] = NULL;
+	sav[fd] = ft_strreplace(sav[fd], ft_strsub(tmp, 0, ft_strlen(tmp)));
 	return (sav[fd] != NULL);
 }

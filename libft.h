@@ -6,7 +6,7 @@
 /*   By: jtong <jtong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 16:28:56 by jtong             #+#    #+#             */
-/*   Updated: 2021/11/23 16:38:46 by jtong            ###   ########.fr       */
+/*   Updated: 2021/11/25 09:40:20 by jtong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ char	*ft_strtrim(char const *s);
 
 size_t	ft_wordcount(const char *str, char const *separators);
 char	**ft_split(char const *s, char c);
+char	**ft_strsplit(char const *s, char const *separators);
 
 /* memory */
 void	*ft_memset(void *b, int c, size_t len);
